@@ -18,7 +18,7 @@ pub struct StaticGroupItemDecorator { x: bool }
 impl MultiItemDecorator for StaticGroupItemDecorator {
 	fn expand(&self, ecx: &mut ExtCtxt, sp: Span, meta_item: &MetaItem, item: &Annotatable, push: &mut FnMut(Annotatable)) {
 		match item {
-			&Annotatable::Item(really_item) => {
+			&Annotatable::Item(ref really_item) => {
 				match really_item.node {
 					ItemKind::Fn(ref decl, ref style, ref constness, ref abi, ref generics, ref block) => {
 						// trace!("{}", decl);
