@@ -1,4 +1,3 @@
-#![crate_type="dylib"]
 #![feature(plugin_registrar, rustc_private)]
 
 extern crate syntax;
@@ -44,24 +43,4 @@ pub fn plugin_registrar(reg: &mut Registry) {
 	let static_group_item_decorator = Box::new(StaticGroupItemDecorator { x: true });
 
 	reg.register_syntax_extension(intern("static_group"), SyntaxExtension::MultiDecorator(static_group_item_decorator));
-}
-
-
-#[cfg(test)]
-mod tests {
-
-	type TestSignature = fn () -> bool;
-
-	#[static_group="my_statics"]
-	fn my_static() -> bool {
-		return true;
-	}
-
-	#[test]
-	fn it_works() {
-		match static_groups::get::<TestSignature>("my_statics") {
-			Some (my_fun) => assert!(my_fun()),
-			None => assert!(false),
-		};
-	}
 }

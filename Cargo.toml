@@ -3,4 +3,10 @@ name = "static_groups"
 version = "0.0.1"
 authors = ["Tinco Andringa <mail@tinco.nl>"]
 
+[lib]
+name = "static_groups"
+path = "src/lib.rs"
+crate-type = ["dylib"]
+plugin = true
+
 [dependencies]
