@@ -1,0 +1,6 @@
+[package]
+name = "static_groups"
+version = "0.0.1"
+authors = ["Tinco Andringa <mail@tinco.nl>"]
+
+[dependencies]
