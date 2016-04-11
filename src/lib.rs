@@ -3,6 +3,9 @@
 extern crate syntax;
 extern crate rustc_plugin;
 
+#[macro_use]
+extern crate log;
+
 use rustc_plugin::Registry;
 use syntax::ext::base::*;
 use syntax::codemap::*;
@@ -20,7 +23,7 @@ impl MultiItemDecorator for StaticGroupItemDecorator {
 			&Annotatable::Item(ref really_item) => {
 				match really_item.node {
 					ItemKind::Fn(ref decl, ref style, ref constness, ref abi, ref generics, ref block) => {
-						// trace!("{}", decl);
+						error!("\n\n\n--------------{}-------------------\n\n\n", really_item.ident);
 						// ...? Add something here.
 					}
 					_ => {
